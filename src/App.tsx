@@ -29,23 +29,14 @@ function App() {
         }
     }
 
-    const currentMoney = getFilterForMoney().map(cash => {
-        return(
-            <li>
-                <span> {cash.banknots}</span>
-                <span> {cash.value}</span>
-                <span> {cash.number}</span>
-            </li>
-        );
-    })
-
     const filterButton = (nameButton: FilterButtonsType) => {
         setFilter(nameButton)
     }
 
     return (
         <>
-            <NewComponent currentMoney={currentMoney} filterButton={filterButton}/>
+            <NewComponent getFilterForMoney={getFilterForMoney}
+                          filterButton={filterButton}/>
         </>
     );
 }
