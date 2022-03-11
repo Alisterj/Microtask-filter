@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import './App.css';
+import NewComponent from "./NewComponent";
 
-type FilterButtonsType = 'all' | 'RUBLS' | 'Dollars'
+export type FilterButtonsType = 'all' | 'RUBLS' | 'Dollars'
 
 function App() {
     const [money, setMoney] = useState([
@@ -43,16 +44,9 @@ function App() {
     }
 
     return (
-        <div>
-            <ul>
-                {currentMoney}
-            </ul>
-            <div className={'filterButtons'}>
-                <button onClick={() => filterButton('all')}>all</button>
-                <button onClick={() => filterButton('RUBLS')}>rubles</button>
-                <button onClick={() => filterButton('Dollars')}>Dollars</button>
-            </div>
-        </div>
+        <>
+            <NewComponent currentMoney={currentMoney} filterButton={filterButton}/>
+        </>
     );
 }
 
